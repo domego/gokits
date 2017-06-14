@@ -159,3 +159,13 @@ func BoolToByte(b bool) byte {
 	}
 	return 0
 }
+
+// InArray 判断指定数组中包含指定项
+func IsInArray(arr []string, val string) bool {
+	for _, v := range arr {
+		if v == val {
+			return true
+		}
+	}
+	return false
+}
