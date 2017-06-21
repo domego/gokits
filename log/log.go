@@ -121,6 +121,11 @@ func (l *Logger) Debugf(format string, a ...interface{}) {
 	l.Output(DEBUG, format, a...)
 }
 
+// Printf trace formated
+func (l *Logger) Printf(format string, a ...interface{}) {
+	l.Output(TRACE, format, a...)
+}
+
 // Infof info formated
 func (l *Logger) Infof(format string, a ...interface{}) {
 	l.Output(INFO, format, a...)
@@ -145,6 +150,11 @@ func (l *Logger) Errorf(format string, a ...interface{}) {
 // Tracef trace formated
 func Tracef(format string, a ...interface{}) {
 	DefaultLogger.Tracef(format, a...)
+}
+
+// Printf trace formated
+func Printf(format string, a ...interface{}) {
+	DefaultLogger.Printf(format, a...)
 }
 
 // Debugf debug formated
