@@ -6,6 +6,18 @@ import (
 	"time"
 )
 
+// GetLocalTime get local time
+func GetLocalTime() *time.Time {
+	now := time.Now()
+	return &now
+}
+
+// GetUTCTime get utc time
+func GetUTCTime() *time.Time {
+	now := time.Now().UTC()
+	return &now
+}
+
 // GetCurrMilliTs 获取当前时间戳
 func GetCurrMilliTs() int64 {
 	return time.Now().UnixNano() / 1000000
@@ -112,10 +124,10 @@ func TimeFormat(layout string, dateTime time.Time) string {
 }
 
 // ToTime 时间字符串转 Time
-func ToTime(layout, value string) time.Time {
+func ToTime(layout, value string) *time.Time {
 	dateTime, err := time.Parse(layout, value)
 	if err != nil {
 		panic(err)
 	}
-	return dateTime
+	return &dateTime
 }
