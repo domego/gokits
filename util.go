@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"math/rand"
 	"strconv"
+	"strings"
 
 	"github.com/shopspring/decimal"
 	"golang.org/x/text/encoding/simplifiedchinese"
@@ -168,4 +169,22 @@ func IsInArray(arr []string, val string) bool {
 		}
 	}
 	return false
+}
+
+// IsEmpty 判断是否为空
+func IsEmpty(val interface{}) bool {
+	switch val.(type) {
+	case string:
+		return strings.TrimSpace(val.(string)) == ""
+	case byte:
+		return val == byte(0)
+	case int:
+		return val == int(0)
+	case int32:
+		return val == int32(0)
+	case int64:
+		return val == int64(0)
+	default:
+		return false
+	}
 }
