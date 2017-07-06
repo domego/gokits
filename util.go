@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"math/rand"
+	"net/url"
 	"strconv"
 	"strings"
 
@@ -201,4 +202,17 @@ func IsEmpty(val interface{}) bool {
 	default:
 		return false
 	}
+}
+
+func QueryEscape(s string) string {
+	s = url.QueryEscape(s)
+	s = strings.Replace(s, "+", "%20", -1)
+	return s
+}
+
+func QueryUnescape(s string) (string, error) {
+	var err error
+	s = strings.Replace(s, "%20", "+", -1)
+	s, err = url.QueryUnescape(s)
+	return s, err
 }
