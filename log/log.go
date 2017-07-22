@@ -108,7 +108,7 @@ func (l *Logger) Output(level Level, format string, a ...interface{}) {
 		s = fmt.Sprint(format)
 	}
 	content := l.getPrefix(level) + " " + s + " " + l.getPosix()
-	std_log.Println(content)
+	l.l.Println(content)
 }
 
 // Tracef trace formated
