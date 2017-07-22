@@ -162,6 +162,16 @@ func BoolToByte(b bool) byte {
 	return 0
 }
 
+// ByteToBool byte to bool
+func ByteToBool(b byte) bool {
+	return b == 1
+}
+
+func StringToFloat64(str string) (value float64) {
+	value, _ = strconv.ParseFloat(str, 64)
+	return
+}
+
 // InArray 判断指定数组中包含指定项
 func IsInArray(arr []string, val string) bool {
 	for _, v := range arr {
@@ -215,4 +225,23 @@ func QueryUnescape(s string) (string, error) {
 	s = strings.Replace(s, "%20", "+", -1)
 	s, err = url.QueryUnescape(s)
 	return s, err
+}
+
+func ParseQueries(url string) map[string]string {
+	queries := make(map[string]string)
+	ss := strings.Split(url, "?")
+	if len(ss) <= 1 {
+		return queries
+	}
+	for _, s := range strings.Split(ss[1], "&") {
+		p := strings.Split(s, "=")
+		queries[p[0]] = p[1]
+	}
+	return queries
+}
+
+func StringToInt32(val string) (value int32) {
+	v, _ := strconv.ParseInt(val, 10, 32)
+	value = int32(v)
+	return
 }

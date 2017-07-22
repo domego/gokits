@@ -15,3 +15,7 @@ func TestIsEmpty(t *testing.T) {
 	t.Logf("byte: 1, %v", IsEmpty(byte(1)))
 
 }
+
+func TestParseQueries(t *testing.T) {
+	t.Logf("%v", ParseQueries("https://uland.taobao.com/coupon/edetail?e=DHRskzIKen%2B7QfSPPGeGabpmFv4aEcr40UDGfotqzCKa5rBMT5rEqug5OxjP%2FnOttqrNb7%2Fe7nk9txhkdMJomB0HgBdG%2FDDL%2F1M%2FBw7Sf%2FfPd%2BzgVG4oJ%2FmjsDkW9dQWGzeLItWH3j9isbZR9N21PnbuxLy55xxw&pid=mm_96847743_12778058_116792905&af=1"))
+}
