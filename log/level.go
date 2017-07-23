@@ -11,10 +11,10 @@ var _ = std_log.Print
 type Level int
 
 const (
-	// TRACE trace level
-	TRACE Level = iota
 	// DEBUG debug level
-	DEBUG
+	DEBUG Level = iota
+	// TRACE trace level
+	TRACE
 	// INFO info level
 	INFO
 	// WARN warn level
