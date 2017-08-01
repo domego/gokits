@@ -245,3 +245,8 @@ func StringToInt32(val string) (value int32) {
 	value = int32(v)
 	return
 }
+
+func StringToInt64(val string) (value int64) {
+	value, _ = strconv.ParseInt(val, 10, 64)
+	return
+}
