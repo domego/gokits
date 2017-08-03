@@ -4,7 +4,7 @@ package log
 
 import "fmt"
 
-const _Level_name = "TRACEDEBUGINFOWARNERRORFATAL"
+const _Level_name = "DEBUGTRACEINFOWARNERRORFATAL"
 
 var _Level_index = [...]uint8{0, 5, 10, 14, 18, 23, 28}
 
