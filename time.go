@@ -125,7 +125,7 @@ func TimeFormat(layout string, dateTime time.Time) string {
 
 // ToTime 时间字符串转 Time
 func ToTime(layout, value string) *time.Time {
-	dateTime, err := time.Parse(layout, value)
+	dateTime, err := time.ParseInLocation(layout, value, time.Local)
 	if err != nil {
 		panic(err)
 	}
