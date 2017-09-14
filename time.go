@@ -125,6 +125,19 @@ func TimeFormat(layout string, dateTime time.Time) string {
 
 // ToTime 时间字符串转 Time
 func ToTime(layout, value string) *time.Time {
+	converts := map[string]string{
+		"yyyy": "2006",
+		"MM":   "01",
+		"dd":   "02",
+		"HH":   "15",
+		"mm":   "04",
+		"ss":   "05",
+	}
+	for k, v := range converts {
+		layout = strings.Replace(layout, k, v, 1)
+	}
+
+	fmt.Println(layout)
 	dateTime, err := time.ParseInLocation(layout, value, time.Local)
 	if err != nil {
 		panic(err)
