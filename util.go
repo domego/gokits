@@ -250,3 +250,32 @@ func StringToInt64(val string) (value int64) {
 	value, _ = strconv.ParseInt(val, 10, 64)
 	return
 }
+
+// FormatNumberToShortString 数字格式化为短字符串，如 10000 ＝ 1万
+func FormatNumberToShortString(number int64) string {
+	// 万
+	tenThousand := 10000
+	// 亿
+	oneHundredMillion := 100000000
+	// 万亿
+	tenThousandMillion := 1000000000000
+
+	if number < int64(tenThousand) {
+		return strconv.FormatInt(number, 10)
+	} else {
+		n := decimal.NewFromFloat(float64(number))
+		var suffix string
+		var m decimal.Decimal
+		if number < int64(oneHundredMillion) {
+			m = decimal.NewFromFloat(float64(tenThousand))
+			suffix = "万"
+		} else if number < int64(tenThousandMillion) {
+			m = decimal.NewFromFloat(float64(oneHundredMillion))
+			suffix = "亿"
+		} else {
+			m = decimal.NewFromFloat(float64(tenThousandMillion))
+			suffix = "万亿"
+		}
+		return n.DivRound(m, 2).String() + suffix
+	}
+}
