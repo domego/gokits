@@ -137,7 +137,6 @@ func ToTime(layout, value string) *time.Time {
 		layout = strings.Replace(layout, k, v, 1)
 	}
 
-	fmt.Println(layout)
 	dateTime, err := time.ParseInLocation(layout, value, time.Local)
 	if err != nil {
 		panic(err)
