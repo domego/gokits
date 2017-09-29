@@ -9,6 +9,7 @@ import (
 	"net/url"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/shopspring/decimal"
 	"golang.org/x/text/encoding/simplifiedchinese"
@@ -249,4 +250,9 @@ func StringToInt32(val string) (value int32) {
 func StringToInt64(val string) (value int64) {
 	value, _ = strconv.ParseInt(val, 10, 64)
 	return
+}
+
+func SleepRandomTime(maxSleepTime time.Duration) {
+	r := rand.New(rand.NewSource(time.Now().UnixNano()))
+	time.Sleep(time.Duration(r.Int63n(int64(maxSleepTime))))
 }

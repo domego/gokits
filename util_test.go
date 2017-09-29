@@ -1,6 +1,9 @@
 package utils
 
-import "testing"
+import (
+	"testing"
+	"time"
+)
 
 func TestIsEmpty(t *testing.T) {
 	t.Logf("string: a, %v", IsEmpty("a"))
@@ -18,4 +21,12 @@ func TestIsEmpty(t *testing.T) {
 
 func TestParseQueries(t *testing.T) {
 	t.Logf("%v", ParseQueries("https://uland.taobao.com/coupon/edetail?e=DHRskzIKen%2B7QfSPPGeGabpmFv4aEcr40UDGfotqzCKa5rBMT5rEqug5OxjP%2FnOttqrNb7%2Fe7nk9txhkdMJomB0HgBdG%2FDDL%2F1M%2FBw7Sf%2FfPd%2BzgVG4oJ%2FmjsDkW9dQWGzeLItWH3j9isbZR9N21PnbuxLy55xxw&pid=mm_96847743_12778058_116792905&af=1"))
+}
+
+func TestSleepRandomTime(t *testing.T) {
+	maxSleepTime := time.Duration(10) * time.Second
+	t.Logf("sleep random time, max sleep time: %fs", maxSleepTime.Seconds())
+	beforeSleep := time.Now()
+	SleepRandomTime(maxSleepTime)
+	t.Logf("sleep time: %fs", time.Now().Sub(beforeSleep).Seconds())
 }
