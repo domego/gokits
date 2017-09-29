@@ -9,6 +9,7 @@ import (
 	"net/url"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/shopspring/decimal"
 	"golang.org/x/text/encoding/simplifiedchinese"
@@ -278,4 +279,10 @@ func FormatNumberToShortString(number int64) string {
 		}
 		return n.DivRound(m, 2).String() + suffix
 	}
+}
+
+// SleepRandomTime 随机 sleep 时间
+func SleepRandomTime(maxSleepTime time.Duration) {
+	r := rand.New(rand.NewSource(time.Now().UnixNano()))
+	time.Sleep(time.Duration(r.Int63n(int64(maxSleepTime))))
 }

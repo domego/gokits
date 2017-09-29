@@ -2,6 +2,7 @@ package utils
 
 import (
 	"testing"
+	"time"
 )
 
 func TestIsEmpty(t *testing.T) {
@@ -27,4 +28,12 @@ func TestFormatNumberToShortString(t *testing.T) {
 	for _, arg := range testArgs {
 		t.Logf("format %d to short string: %s", arg, FormatNumberToShortString(arg))
 	}
+}
+
+func TestSleepRandomTime(t *testing.T) {
+	maxSleepTime := time.Duration(10) * time.Second
+	t.Logf("sleep random time, max sleep time: %fs", maxSleepTime.Seconds())
+	beforeSleep := time.Now()
+	SleepRandomTime(maxSleepTime)
+	t.Logf("sleep time: %fs", time.Now().Sub(beforeSleep).Seconds())
 }
