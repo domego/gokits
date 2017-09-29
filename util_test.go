@@ -23,6 +23,7 @@ func TestParseQueries(t *testing.T) {
 	t.Logf("%v", ParseQueries("https://uland.taobao.com/coupon/edetail?e=DHRskzIKen%2B7QfSPPGeGabpmFv4aEcr40UDGfotqzCKa5rBMT5rEqug5OxjP%2FnOttqrNb7%2Fe7nk9txhkdMJomB0HgBdG%2FDDL%2F1M%2FBw7Sf%2FfPd%2BzgVG4oJ%2FmjsDkW9dQWGzeLItWH3j9isbZR9N21PnbuxLy55xxw&pid=mm_96847743_12778058_116792905&af=1"))
 }
 
+<<<<<<< HEAD
 func TestFormatNumberToShortString(t *testing.T) {
 	testArgs := []int64{100, 10000, 10101, 10000000, 1000000001, 10000000000000}
 	for _, arg := range testArgs {
@@ -30,6 +31,8 @@ func TestFormatNumberToShortString(t *testing.T) {
 	}
 }
 
+=======
+>>>>>>> 9a09cfbabbfe7080fa491ca8a65259b737330e15
 func TestSleepRandomTime(t *testing.T) {
 	maxSleepTime := time.Duration(10) * time.Second
 	t.Logf("sleep random time, max sleep time: %fs", maxSleepTime.Seconds())

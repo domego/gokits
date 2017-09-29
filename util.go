@@ -252,6 +252,7 @@ func StringToInt64(val string) (value int64) {
 	return
 }
 
+<<<<<<< HEAD
 // FormatNumberToShortString 数字格式化为短字符串，如 10000 ＝ 1万
 func FormatNumberToShortString(number int64) string {
 	// 万
@@ -281,6 +282,8 @@ func FormatNumberToShortString(number int64) string {
 	}
 }
 
+=======
+>>>>>>> 9a09cfbabbfe7080fa491ca8a65259b737330e15
 // SleepRandomTime 随机 sleep 时间
 func SleepRandomTime(maxSleepTime time.Duration) {
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
