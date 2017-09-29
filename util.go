@@ -252,6 +252,7 @@ func StringToInt64(val string) (value int64) {
 	return
 }
 
+// SleepRandomTime 随机 sleep 时间
 func SleepRandomTime(maxSleepTime time.Duration) {
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 	time.Sleep(time.Duration(r.Int63n(int64(maxSleepTime))))
