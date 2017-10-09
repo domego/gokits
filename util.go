@@ -286,3 +286,14 @@ func SleepRandomTime(maxSleepTime time.Duration) {
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 	time.Sleep(time.Duration(r.Int63n(int64(maxSleepTime))))
 }
+
+// GenVerifyCode 生成随机数
+func GenVerifyCode(n int, randomRange []string) string {
+	var s string
+	r := rand.New(rand.NewSource(time.Now().UnixNano()))
+	rangeSize := len(randomRange)
+	for i := 0; i < n; i++ {
+		s += randomRange[r.Intn(rangeSize)]
+	}
+	return s
+}
