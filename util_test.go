@@ -37,3 +37,9 @@ func TestSleepRandomTime(t *testing.T) {
 	SleepRandomTime(maxSleepTime)
 	t.Logf("sleep time: %fs", time.Now().Sub(beforeSleep).Seconds())
 }
+
+func TestGenVerifyCode(t *testing.T) {
+	randomRange := []string{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}
+	n := 4
+	t.Logf("gen verify code: %s", GenVerifyCode(n, randomRange))
+}
