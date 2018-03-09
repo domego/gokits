@@ -130,6 +130,7 @@ var (
 
 // RandString rand string
 func RandString(l int) string {
+	rand.Seed(time.Now().Unix())
 	bs := []byte{}
 	for i := 0; i < l; i++ {
 		bs = append(bs, chars[rand.Intn(len(chars))])
